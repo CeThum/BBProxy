@@ -5,7 +5,7 @@ BBProxy 是为 BlackBerry 10 / BerryCore 编写的零第三方依赖 Python 3 �
 它提供两种使用方式：
 
 - Shell 标准代理：让 `wget`、Python 等程序通过 `http_proxy` / `https_proxy` 使用 BBProxy。
-- LAI 请求网关：让不能自行发送 HTTP `CONNECT` 的 BB10 WebView 通过 `/agent_request/` 访问 HTTP(S) API。
+- 第三方 App/程序请求网关：让不能自行发送 HTTP `CONNECT` 的 BB10 WebView 或其他客户端通过 `/agent_request/` 访问 HTTP(S) API。
 
 ## 文件与运行环境
 
@@ -101,9 +101,9 @@ no_proxy=127.0.0.1,localhost,192.168.0.0/16,172.16.0.0/12
 
 这些变量只影响当前 Shell 以及从它启动的子进程，不会自动改变其他 BB10 应用的网络。
 
-## LAI `/agent_request/` 网关
+## 第三方 App/程序调用 `/agent_request/` 网关
 
-BB10 WebView 无法像完整代理客户端一样对 HTTPS 代理发送 `CONNECT`。LAI 可把真实目标编码进本地 URL：
+部分 BB10 WebView 或第三方程序无法像完整代理客户端一样对 HTTPS 代理发送 `CONNECT`。这类 App/程序可把真实目标编码进本地 URL：
 
 ```text
 真实目标：
