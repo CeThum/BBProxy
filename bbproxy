@@ -1,0 +1,2 @@
+#!/bin/sh
+exec python3 /accounts/1000/shared/misc/bbproxy/bbproxy.py "$@"
